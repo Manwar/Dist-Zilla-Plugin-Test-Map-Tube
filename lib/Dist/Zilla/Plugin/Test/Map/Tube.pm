@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::Test::Map::Tube;
 
-$Dist::Zilla::Plugin::Test::Map::Tube::VERSION   = '0.01';
+$Dist::Zilla::Plugin::Test::Map::Tube::VERSION   = '0.02';
 $Dist::Zilla::Plugin::Test::Map::Tube::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
@@ -9,7 +9,7 @@ Dist::Zilla::Plugin::Test::Map::Tube - Provides release test for Test::Map::Tube
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
@@ -92,7 +92,7 @@ that I have just "gotten it wrong" in some places.
 
 =item L<Map::Tube>
 
-=item :<Test::Map::Tube>
+=item L<Test::Map::Tube>
 
 =back
 
