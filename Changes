@@ -1,0 +1,4 @@
+Revision history for Perl extension Dist::Zilla::Plugin::Test::Map::Tube.
+
+0.01  Tue Dec 01 13:15:00 2015
+      - Module created, my first Dist::Zilla plugin.
