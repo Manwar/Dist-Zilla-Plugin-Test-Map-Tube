@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::Test::Map::Tube;
 
-$Dist::Zilla::Plugin::Test::Map::Tube::VERSION   = '0.02';
+$Dist::Zilla::Plugin::Test::Map::Tube::VERSION   = '0.03';
 $Dist::Zilla::Plugin::Test::Map::Tube::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
@@ -9,7 +9,7 @@ Dist::Zilla::Plugin::Test::Map::Tube - Provides release test for Test::Map::Tube
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
