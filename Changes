@@ -1,5 +1,9 @@
 Revision history for Perl extension Dist::Zilla::Plugin::Test::Map::Tube.
 
+0.04  Fri Jan 09 09:15:00 2016
+      - Updated Copyright year information.
+      - Cosmetic changes to the pod document.
+
 0.03  Wed Dec 02 09:55:00 2015
       - Added MIN_PERL_VERSION using plugin [MinimumPerl].
 

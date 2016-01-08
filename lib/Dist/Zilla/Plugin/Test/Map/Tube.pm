@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::Test::Map::Tube;
 
-$Dist::Zilla::Plugin::Test::Map::Tube::VERSION   = '0.03';
+$Dist::Zilla::Plugin::Test::Map::Tube::VERSION   = '0.04';
 $Dist::Zilla::Plugin::Test::Map::Tube::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
@@ -9,7 +9,7 @@ Dist::Zilla::Plugin::Test::Map::Tube - Provides release test for Test::Map::Tube
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
@@ -24,7 +24,7 @@ use Dist::Zilla::File::InMemory;
 This is an extension  of L<Dist::Zilla::Plugin::InlineFiles>, providing following
 file:
 
-  xt/release/map.t
+    xt/release/map.t
 
 This test uses L<Test::Map::Tube> to check your map data and basic functions.
 
@@ -32,7 +32,7 @@ This test uses L<Test::Map::Tube> to check your map data and basic functions.
 
 Just add the following line to your C<dist.ini> file.
 
-[Test::Map::Tube]
+    [Test::Map::Tube]
 
 =cut
 
@@ -141,7 +141,7 @@ L<http://search.cpan.org/dist/Dist-Zilla-Plugin-Test-Map-Tube/>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright (C) 2015 Mohammad S Anwar.
+Copyright (C) 2015 - 2016 Mohammad S Anwar.
 
 This  program  is  free software; you can redistribute it  and/or modify it under
 the  terms  of the the Artistic License (2.0). You may  obtain a copy of the full
