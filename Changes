@@ -1,5 +1,9 @@
 Revision history for Perl extension Dist::Zilla::Plugin::Test::Map::Tube.
 
+0.05  Tue Apr 19 15:30:00 2016
+      - Added support for new method ok_map_routes() provided by Test::Map::Tube v0.15.
+      - Upgraded to use Test::Map::Tube v0.15 (prereqs).
+
 0.04  Fri Jan 09 09:15:00 2016
       - Updated Copyright year information.
       - Cosmetic changes to the pod document.
