@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::Test::Map::Tube;
 
-$Dist::Zilla::Plugin::Test::Map::Tube::VERSION   = '0.06';
+$Dist::Zilla::Plugin::Test::Map::Tube::VERSION   = '0.07';
 $Dist::Zilla::Plugin::Test::Map::Tube::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
@@ -9,7 +9,7 @@ Dist::Zilla::Plugin::Test::Map::Tube - Provides release test for Test::Map::Tube
 
 =head1 VERSION
 
-Version 0.06
+Version 0.07
 
 =cut
 
@@ -112,11 +112,13 @@ plan skip_all => \"Test::Map::Tube %s required\" if \$\@;",
     );
 }
 
-=head1 BUGS
+=head1 AUTHOR
 
-None that I am aware of.Of course, if you find a bug, let me know, and I would do
-my best  to fix it.  This is still a very early version, so it is always possible
-that I have just "gotten it wrong" in some places.
+Mohammad S Anwar, C<< <mohammad.anwar at yahoo.com> >>
+
+=head1 REPOSITORY
+
+L<https://github.com/manwar/Dist-Zilla-Plugin-Test-Map-Tube>
 
 =head1 SEE ALSO
 
@@ -127,14 +129,6 @@ that I have just "gotten it wrong" in some places.
 =item L<Test::Map::Tube>
 
 =back
-
-=head1 AUTHOR
-
-Mohammad S Anwar, C<< <mohammad.anwar at yahoo.com> >>
-
-=head1 REPOSITORY
-
-L<https://github.com/manwar/Dist-Zilla-Plugin-Test-Map-Tube>
 
 =head1 BUGS
 
