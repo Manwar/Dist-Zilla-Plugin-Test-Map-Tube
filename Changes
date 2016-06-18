@@ -1,5 +1,9 @@
 Revision history for Perl extension Dist::Zilla::Plugin::Test::Map::Tube.
 
+0.09  Sat Jun 18 04:30:00 2016
+      - Added unit test for generated map test script.
+      - Fixed missing pre-reqs in the generated map test script.
+
 0.08  Tue Jun 07 15:00:00 2016
       - Fixed missing pre-reqs as reported by CPANTS.
 
