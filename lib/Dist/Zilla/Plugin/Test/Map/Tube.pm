@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::Test::Map::Tube;
 
-$Dist::Zilla::Plugin::Test::Map::Tube::VERSION   = '0.09';
+$Dist::Zilla::Plugin::Test::Map::Tube::VERSION   = '0.10';
 $Dist::Zilla::Plugin::Test::Map::Tube::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
@@ -9,7 +9,7 @@ Dist::Zilla::Plugin::Test::Map::Tube - Provides release test for Test::Map::Tube
 
 =head1 VERSION
 
-Version 0.09
+Version 0.10
 
 =cut
 
@@ -48,6 +48,7 @@ The routes file should be structured as below:
 
 =cut
 
+our $MIN_VER = 0.17;
 has 'routes' => (is => 'ro', required => 0);
 
 sub register_prereqs {
@@ -58,7 +59,7 @@ sub register_prereqs {
             type  => 'requires',
             phase => 'develop',
         },
-        'Test::Map::Tube' => '0.13',
+        'Test::Map::Tube' => $MIN_VER,
     );
 }
 
@@ -67,11 +68,9 @@ sub gather_files {
 
     my $routes_file = $self->routes;
     my $file_name   = "xt/release/map.t";
-    my $min_ver     = 0.13;
     my $min_tests   = 2;
 
     if (defined $routes_file) {
-        $min_ver   = 0.15;
         $min_tests = 3;
     }
 
@@ -87,7 +86,7 @@ use utf8;\n",
     $file_content .= sprintf("
 eval \"use Test::Map::Tube %s tests => %s\";
 plan skip_all => \"Test::Map::Tube %s required\" if \$\@;",
-                               $min_ver, $min_tests, $min_ver);
+                               $MIN_VER, $min_tests, $MIN_VER);
 
     my $map_module = $self->zilla->name;
     $map_module =~ s/\-/\:\:/g;
