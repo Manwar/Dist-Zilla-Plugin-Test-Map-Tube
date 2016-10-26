@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::Test::Map::Tube;
 
-$Dist::Zilla::Plugin::Test::Map::Tube::VERSION   = '0.10';
+$Dist::Zilla::Plugin::Test::Map::Tube::VERSION   = '0.11';
 $Dist::Zilla::Plugin::Test::Map::Tube::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
@@ -9,7 +9,7 @@ Dist::Zilla::Plugin::Test::Map::Tube - Provides release test for Test::Map::Tube
 
 =head1 VERSION
 
-Version 0.10
+Version 0.11
 
 =cut
 
@@ -91,16 +91,15 @@ plan skip_all => \"Test::Map::Tube %s required\" if \$\@;",
     my $map_module = $self->zilla->name;
     $map_module =~ s/\-/\:\:/g;
     $file_content .=
-        sprintf("\n\nuse %s;\n\nok_map(%s->new);\n\nok_map_functions(%s->new);\n\n",
-                $map_module, $map_module, $map_module);
+        sprintf("\n\nuse %s;\n\nmy \$map = %s->new;\n\nok_map(\$map);\n\nok_map_functions(\$map);\n\n",
+                $map_module, $map_module);
 
     if (defined $routes_file) {
         $file_content .=
             sprintf("open(IN, %s) or die \"Can't open routes file: \$\!\\n\"; my \@routes = <IN>; close(IN);\n\n",
                     $routes_file);
-        $file_content .=
-            sprintf("ok_map_routes(%s->new, \\\@routes);\n\n",
-                    $map_module);
+        $file_content .= q{ok_map_routes($map, \@routes);};
+        $file_content .= "\n\n";
     }
 
     $self->log(["Adding %s ...", $file_name]);
