@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::Test::Map::Tube;
 
-$Dist::Zilla::Plugin::Test::Map::Tube::VERSION   = '0.11';
+$Dist::Zilla::Plugin::Test::Map::Tube::VERSION   = '0.12';
 $Dist::Zilla::Plugin::Test::Map::Tube::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
@@ -9,7 +9,7 @@ Dist::Zilla::Plugin::Test::Map::Tube - Provides release test for Test::Map::Tube
 
 =head1 VERSION
 
-Version 0.11
+Version 0.12
 
 =cut
 
@@ -96,7 +96,7 @@ plan skip_all => \"Test::Map::Tube %s required\" if \$\@;",
 
     if (defined $routes_file) {
         $file_content .=
-            sprintf("open(IN, %s) or die \"Can't open routes file: \$\!\\n\"; my \@routes = <IN>; close(IN);\n\n",
+            sprintf("open(IN, '<:encoding(UTF-8)', %s) or die \"Can't open routes file: \$\!\\n\"; my \@routes = <IN>; close(IN);\n\n",
                     $routes_file);
         $file_content .= q{ok_map_routes($map, \@routes);};
         $file_content .= "\n\n";
