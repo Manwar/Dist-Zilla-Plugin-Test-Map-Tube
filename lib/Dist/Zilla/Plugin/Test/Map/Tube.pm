@@ -1,15 +1,10 @@
 package Dist::Zilla::Plugin::Test::Map::Tube;
 
-$Dist::Zilla::Plugin::Test::Map::Tube::VERSION   = '0.12';
 $Dist::Zilla::Plugin::Test::Map::Tube::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
 
 Dist::Zilla::Plugin::Test::Map::Tube - Provides release test for Test::Map::Tube.
-
-=head1 VERSION
-
-Version 0.12
 
 =cut
 
@@ -48,7 +43,7 @@ The routes file should be structured as below:
 
 =cut
 
-our $MIN_VER = 0.17;
+our $MIN_VER = 0.22;
 has 'routes' => (is => 'ro', required => 0);
 
 sub register_prereqs {
@@ -84,14 +79,14 @@ use utf8;\n",
                                $Dist::Zilla::Plugin::Test::Map::Tube::VERSION);
     $file_content .= lc('U').lc('S').lc('E'). " Test::More;\n";
     $file_content .= sprintf("
-eval \"use Test::Map::Tube %s tests => %s\";
-plan skip_all => \"Test::Map::Tube %s required\" if \$\@;",
-                               $MIN_VER, $min_tests, $MIN_VER);
+my \$min_tmt = %s;
+eval \"use Test::Map::Tube \$min_tmt tests => %s\";
+plan skip_all => \"Test::Map::Tube \$min_tmt required\" if \$\@;", $MIN_VER, $min_tests);
 
     my $map_module = $self->zilla->name;
     $map_module =~ s/\-/\:\:/g;
     $file_content .=
-        sprintf("\n\nuse %s;\n\nmy \$map = %s->new;\n\nok_map(\$map);\n\nok_map_functions(\$map);\n\n",
+        sprintf("\n\nuse %s;\n\nmy \$map = %s->new;\n\nSKIP: {\n\nok_map(\$map) or skip 'no map data found', 2;\n\nok_map_functions(\$map);\n\n",
                 $map_module, $map_module);
 
     if (defined $routes_file) {
@@ -101,6 +96,8 @@ plan skip_all => \"Test::Map::Tube %s required\" if \$\@;",
         $file_content .= q{ok_map_routes($map, \@routes);};
         $file_content .= "\n\n";
     }
+
+    $file_content .= "}\n\n";
 
     $self->log(["Adding %s ...", $file_name]);
     $self->add_file(
