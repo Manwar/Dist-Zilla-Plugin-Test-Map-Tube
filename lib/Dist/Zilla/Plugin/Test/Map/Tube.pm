@@ -43,7 +43,7 @@ The routes file should be structured as below:
 
 =cut
 
-our $MIN_VER = '0.30';
+our $MIN_VER = '0.31';
 has 'routes' => (is => 'ro', required => 0);
 
 sub register_prereqs {
