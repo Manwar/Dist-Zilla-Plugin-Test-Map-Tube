@@ -63,10 +63,10 @@ sub gather_files {
 
     my $routes_file = $self->routes;
     my $file_name   = "xt/release/map.t";
-    my $min_tests   = 2;
+    my $min_tests   = 3;
 
     if (defined $routes_file) {
-        $min_tests = 3;
+        $min_tests += 1;
     }
 
     my $file_content = sprintf("
@@ -86,7 +86,7 @@ plan skip_all => \"Test::Map::Tube \$min_tmt required\" if \$\@;", $MIN_VER, $mi
     my $map_module = $self->zilla->name;
     $map_module =~ s/\-/\:\:/g;
     $file_content .=
-        sprintf("\n\nuse %s;\n\nmy \$map = %s->new;\n\nSKIP: {\n\nok_map(\$map) or skip 'no map data found', 2;\n\nok_map_functions(\$map);\n\n",
+        sprintf("\n\nuse %s;\n\nmy \$map = new_ok('%s');\n\nSKIP: {\n\nok_map(\$map) or skip 'no map data found', 2;\n\nok_map_functions(\$map);\n\n",
                 $map_module, $map_module);
 
     if (defined $routes_file) {
